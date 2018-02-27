@@ -13,13 +13,18 @@ import { HomeComponent } from './home/home.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { AuthDialogComponent } from './auth-dialog/auth-dialog.component';
 import { MaterializeModule } from 'angular2-materialize';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { RegisterFormComponent } from './register-form/register-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ToolbarComponent,
-    AuthDialogComponent
+    AuthDialogComponent,
+    LoginFormComponent,
+    RegisterFormComponent
 
   ],
   imports: [
@@ -27,7 +32,8 @@ import { MaterializeModule } from 'angular2-materialize';
     AppRoutingModule,
     HttpClientModule,
     HttpModule,
-    MaterializeModule
+    MaterializeModule,
+    FormsModule
   ],
   providers: [ Angular2TokenService ],
   bootstrap: [AppComponent]
