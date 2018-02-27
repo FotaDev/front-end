@@ -9,17 +9,25 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 import { Angular2TokenService } from 'angular2-token';
+import { HomeComponent } from './home/home.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { AuthDialogComponent } from './auth-dialog/auth-dialog.component';
+import { MaterializeModule } from 'angular2-materialize';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    ToolbarComponent,
+    AuthDialogComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    MaterializeModule
   ],
   providers: [ Angular2TokenService ],
   bootstrap: [AppComponent]
