@@ -16,6 +16,9 @@ import { MaterializeModule } from 'angular2-materialize';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { FormsModule } from '@angular/forms';
+import {AuthService} from "./services/auth.service";
+import { ProfileComponent } from './profile/profile.component';
+import {AuthGuard} from "./guards/auth.guard";
 
 @NgModule({
   declarations: [
@@ -24,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     ToolbarComponent,
     AuthDialogComponent,
     LoginFormComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    ProfileComponent
 
   ],
   imports: [
@@ -35,7 +39,7 @@ import { FormsModule } from '@angular/forms';
     MaterializeModule,
     FormsModule
   ],
-  providers: [ Angular2TokenService ],
+  providers: [ Angular2TokenService,AuthService,AuthGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
