@@ -1,6 +1,5 @@
 import {Component, OnInit, EventEmitter, Output} from '@angular/core';
 import {Angular2TokenService} from "angular2-token";
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-register-form',
@@ -11,10 +10,8 @@ export class RegisterFormComponent implements OnInit {
 
   signUpUser = {
     email: '',
-    group_id: '',
     password: '',
     passwordConfirmation: ''
-    
   };
 
   @Output() onFormResult = new EventEmitter<any>();
