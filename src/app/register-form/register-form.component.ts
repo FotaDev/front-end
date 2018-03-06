@@ -11,6 +11,7 @@ export class RegisterFormComponent implements OnInit {
   signUpUser = {
     email: '',
     password: '',
+    group_id: '',
     passwordConfirmation: ''
   };
 
