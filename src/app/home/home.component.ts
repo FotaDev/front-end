@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  hires;
+
+  constructor(private http: Http) {
+    http.get('http://localhost:3000/hires.json')
+      .subscribe(res => this.hires= res.json());
+   }
 
   ngOnInit() {
   }

@@ -1,5 +1,6 @@
 import {Component, OnInit, EventEmitter, Output} from '@angular/core';
 import {AuthService} from '../services/auth.service';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-register-form',
@@ -17,7 +18,12 @@ export class RegisterFormComponent implements OnInit {
 
   @Output() onFormResult = new EventEmitter<any>();
 
-  constructor(public authSerivce: AuthService) { }
+  groups;
+
+  constructor(public authSerivce: AuthService, private http: Http) {
+    http.get('http://localhost:3000/groups.json')
+    .subscribe(res => this.groups= res.json());
+   }
 
   ngOnInit() {}
 

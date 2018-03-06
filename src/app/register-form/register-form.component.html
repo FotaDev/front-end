@@ -13,7 +13,7 @@
       <label for="email">Email</label>
     </div>
 
-    <div class="input-field col s12">
+    <!-- <div class="input-field col s12">
       <input id="group_id"
               type="text"
              required
@@ -21,10 +21,17 @@
              [(ngModel)]="signUpUser.group_id"
              class="validate">
       <label for="group_id">GroupID</label>
-    </div>
+    </div> -->
 
-
-
+    <label>groups</label>
+    <select class="browser-default" id="group_id"
+   name='group_id'
+   [(ngModel)]="signUpUser.group_id"
+   >
+      <option value="" disabled selected>Choose your option</option>
+      <option value="{{group.id}}" *ngFor="let group of groups">{{ group.name}}</option>
+    </select>
+              
     <div class="input-field col s12">
       <input id="password"
              type="password"
@@ -35,8 +42,7 @@
       <label for="password">Password</label>
     </div>
 
-
-
+  
     <div class="input-field col s12">
       <input id="password_confirmation"
              type="password"
