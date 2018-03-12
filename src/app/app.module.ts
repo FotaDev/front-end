@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
 import {AuthService} from "./services/auth.service";
 import { ProfileComponent } from './profile/profile.component';
 import {AuthGuard} from "./guards/auth.guard";
+import {GroupsService} from "./services/groups.service"
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import {AuthGuard} from "./guards/auth.guard";
     MaterializeModule,
     FormsModule
   ],
-  providers: [ Angular2TokenService,AuthService,AuthGuard ],
+  providers: [ Angular2TokenService,AuthService,AuthGuard , GroupsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

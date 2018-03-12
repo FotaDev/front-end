@@ -1,6 +1,11 @@
 import {Component, OnInit, EventEmitter, Output} from '@angular/core';
 import {AuthService} from '../services/auth.service';
 import { Http } from '@angular/http';
+import { Groups} from '../interface/groups';
+import {GroupsService} from "../services/groups.service";
+import {Observable} from 'rxjs/Rx';
+
+
 
 @Component({
   selector: 'app-register-form',
@@ -8,6 +13,11 @@ import { Http } from '@angular/http';
   styleUrls: ['./register-form.component.sass']
 })
 export class RegisterFormComponent implements OnInit {
+
+  groups: Groups[];
+  mode = "Observable";
+  errorMessage: string;
+
 
   signUpUser = {
     email: '',
@@ -18,16 +28,20 @@ export class RegisterFormComponent implements OnInit {
 
   @Output() onFormResult = new EventEmitter<any>();
 
-  groups;
 
-  constructor(public authSerivce: AuthService, private http: Http) {
-    http.get('http://localhost:3000/groups.json')
-    .subscribe(res => this.groups= res.json());
-   }
+  constructor(public authSerivce: AuthService, private groupsService: GroupsService) {
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
 
+    let timer =Observable.timer(0,5000);
+    timer.subscribe(() => this.getGroups());
+  }
 
+  getGroups(){
+      this.groupsService.getGroups().subscribe(groups => this.groups = groups, error => this.errorMessage = <any>error);
+
+}
   onSignUpSubmit() {
 
     this.authSerivce.registerUser(this.signUpUser).subscribe(

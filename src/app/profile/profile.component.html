@@ -16,8 +16,8 @@
 
             <ul class="collection grey-text text-darken-2">
               <li class="collection-item">Email:  <b>{{authTokenService.currentUserData.email}}</b></li>
-              <li class="collection-item">Name:  <b>{{authTokenService.currentUserData.group_id}}</b></li>
-              <li class="collection-item">Username: <b>@{{authTokenService.currentUserData.nickname}}</b></li>
+              <li class="collection-item">Group:  <b>{{authTokenService.currentUserData.group_id}}</b></li>
+              <li class="collection-item">User ID: <b>{{authTokenService.currentUserData.id}}</b></li>
 
             </ul>
           </div>
@@ -39,3 +39,44 @@
 
   </div>
 </div>
+
+
+<form (ngSubmit)="createHigher()" #f="ngForm" >
+
+
+  <div class="row">
+
+    <div class="input-field col s12">
+      <input id="reference"
+             type="text"
+             required
+             name='reference' 
+             [(ngModel)]="createReference.reference" 
+             class="validate">
+      
+      <label for="reference">Reference</label>
+    </div>
+
+    
+    <div class="input-field col s12">
+      <input id="reference"
+             type="text"
+             required
+             name='reference' 
+             [(ngModel)]="createReference.reference" 
+             class="validate">
+      
+      <label for="reference">Reference</label>
+    </div>
+
+    <div class="col s12 ">
+      <button type="submit" 
+             
+      > 
+        send </button>
+    </div>
+
+
+  </div>
+
+</form>
