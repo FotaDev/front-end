@@ -7,7 +7,8 @@ export class NewHires {
 		public band?:string,
 		public reference?:string,
 		public invoice_number?:string,
-		public group_id?:string
+        public group_id?:string
+        
 	) {}
 }
 

@@ -7,7 +7,7 @@
         <div>
           <form (ngSubmit)="createHire(hire)" #hireForm="ngForm">
             <div class="form-group">
-              <label for="customer">Reference</label>
+              <label for="reference">Reference</label>
               <input type="text"
                       class="form-control"
                       id="reference"
@@ -15,7 +15,7 @@
                       required
                       name="reference"
                       #reference='ngModel'
-                      [(ngModel)]="reference.id"
+                      [(ngModel)]="hire.reference"
               >
               <div [hidden]="reference.valid || reference.pristine"
                     class='alert alert-danger'
@@ -25,7 +25,7 @@
             </div>
   
             <div class="form-group">
-              <label for="portfolio_url">Invoice Number</label>
+              <label for="invoice_number">Invoice Number</label>
               <input type="text"
                       class="form-control"
                       id="invoice_number"
@@ -34,10 +34,31 @@
                       #invoice_number='ngModel'
                       [(ngModel)]="hire.invoice_number"
               >
-
             </div>
-  
-         
+            <div class="form-group">
+                <label for="group_id">Group ID</label>
+                <input type="text"
+                        class="form-control"
+                        id="group_id"
+                        required
+                        name="group_id"
+                        #invoice_number='ngModel'
+                        [(ngModel)]="hire.group_id"
+                >
+              </div>
+
+              <div class="form-group">
+                  <label for="id">User ID</label>
+                  <input type="text"
+                          class="form-control"
+                          id="id"
+                          required
+                          name="id"
+                          #invoice_number='ngModel'
+                          [(ngModel)]="hire.id"
+                  >
+                </div>
+
   
             <button type="submit"
               class='btn btn-outline-primary btn-lg'
