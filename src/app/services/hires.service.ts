@@ -6,43 +6,35 @@ import { Hires} from '../interface/hires';
 @Injectable()
 export class HiresService {
 
+ private hiresUrl = 'http://localhost:3000/hires.json';
+
   constructor(private http:Http) { }
 
-  // set the domain
-  public endpoint = "http://localhost:3000";
 
-  // retrieve saved information about a particular hire from the API
-  get(hireId: string, callback)
-  {
-    this.http.get(`${this.endpoint}/hires/${hireId}`)
-      .subscribe(response => {
-        callback(response.json());
-      });
+  getHires() :Observable<Hires[]>{
+
+    return this.http.get(this.hiresUrl).map((response:Response )=> <Hires[]>response.json()).catch(this.handleError);
+  
   }
 
-  getList(callback)
-  {
-    this.http.get(`${this.endpoint}/hires`)
-      .subscribe(response => {
-        console.log(response.json());
-        callback(response.json());
-      });
-  }
+  createHire(hire){
+    let headers  = new Headers({'Content-Type': 'application/json'});
+    let options = new RequestOptions({headers :headers});
+    return this.http.post(this.hiresUrl,JSON.stringify(hire),{headers: headers}).map((response :Response)=> response.json());
+   }
 
-  save(hire, callback) {
-    if (hire.id) {
-      // It's an update
-      this.http.put(`${this.endpoint}/hire/${hire.id}`, hire)
-        .subscribe(response => {
-          callback(true);
-        });
+  private handleError (error: Response | any) {
+    // In a real world app, we might use a remote logging infrastructure
+    let errMsg: string;
+    if (error instanceof Response) {
+      const body = error.json() || '';
+      const err = body.error || JSON.stringify(body);
+      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
     } else {
-      // It's an insert
-      this.http.post(`${this.endpoint}/hires`, hire)
-        .subscribe(response => {
-          callback(true);
-        });
+      errMsg = error.message ? error.message : error.toString();
     }
+    console.error(errMsg);
+    return Observable.throw(errMsg);
   }
 
 }

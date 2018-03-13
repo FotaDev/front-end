@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {HiresService} from '../services/hires.service';
 import {NewHires} from './newhire';
 import {Observable} from 'rxjs/RX';
-import {Hire} from "../logic/Hire";
-import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-newhire',
@@ -12,41 +10,22 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class NewhireComponent implements OnInit {
 
-  hire : Hire;
-  routingSubscription: any;
+  hire = new NewHires;
+  submitted: boolean = false;
 
-  constructor(private hireservice : HiresService,
-              private route: ActivatedRoute,
-              private router: Router) {}
+  constructor( private hireservice : HiresService) { }
+
+  createHire(hire){
+
+    this.submitted = true;
+    this.hireservice.createHire(hire).subscribe( data => {return true},
+                                      error => {console.log("Error saving hire");
+                                      return Observable.throw(error)});
+
+
+  }
 
   ngOnInit() {
-    this.hire = new Hire();
-
-    this.routingSubscription = this.route.params.subscribe(params => {
-      console.log(params["id"]);
-
-      if(params["id"])
-      {
-        this.hireservice.get(params["id"], response => {
-          this.hire = response;
-        });
-      }
-    });
-  }
-
-  save()
-  {
-    this.hireservice.save(this.hire, result => {
-      if(result)
-      {
-        this.router.navigate(["/"]);
-      }
-    });
-  }
-
-  ngOnDestroy()
-  {
-    this.routingSubscription.unsubscribe();
   }
 
 }

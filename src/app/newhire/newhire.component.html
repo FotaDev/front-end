@@ -1,41 +1,56 @@
 <div class="card container form-container">
-  <div class='row'>
-    <div class="col-md-6">
-      <h1>Create Hire</h1>
-      <div>
-        <form>
-          <div class="form-group">
-            <label for="reference">Reference</label>
-            <input type="text"
-                   class="form-control"
-                   id="reference"
-                   placeholder="ID"
-                   required
-                   name="reference"
-                   #reference='ngModel'
-                   [(ngModel)]="hire.reference">
-            <div [hidden]="reference.valid || reference.pristine"
-                 class='alert alert-danger'>
-              Customer name is required
+    <div class='row'>
+  
+      <div class="col-md-6">
+        <h1>Create Hire</h1>
+  
+        <div>
+          <form (ngSubmit)="createHire(hire)" #hireForm="ngForm">
+            <div class="form-group">
+              <label for="customer">Reference</label>
+              <input type="text"
+                      class="form-control"
+                      id="reference"
+                      placeholder="ID"
+                      required
+                      name="reference"
+                      #reference='ngModel'
+                      [(ngModel)]="reference.id"
+              >
+              <div [hidden]="reference.valid || reference.pristine"
+                    class='alert alert-danger'
+              >
+                Customer name is required
+              </div>
             </div>
-          </div>
+  
+            <div class="form-group">
+              <label for="portfolio_url">Invoice Number</label>
+              <input type="text"
+                      class="form-control"
+                      id="invoice_number"
+                      required
+                      name="invoice_number"
+                      #invoice_number='ngModel'
+                      [(ngModel)]="hire.invoice_number"
+              >
 
-          <div class="form-group">
-            <label>Invoice Number</label>
-            <label for="invoice_number"></label>
-            <input type="text"
-                   class="form-control"
-                   id="invoice_number"
-                   required
-                   name="invoice_number"
-                   #invoice_number='ngModel'
-                   [(ngModel)]="hire.invoice_number">
-          </div>
-
-          <button (click)="save()">Save</button>
-
-        </form>
+            </div>
+  
+         
+  
+            <button type="submit"
+              class='btn btn-outline-primary btn-lg'
+              [disabled]="!hireForm.form.valid"
+              [hidden]="submitted"
+            >
+              Generate Proposal
+            </button>
+  
+  
+          </form>
+        </div>
       </div>
+      
     </div>
   </div>
-</div>
