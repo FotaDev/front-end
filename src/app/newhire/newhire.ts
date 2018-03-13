@@ -1,6 +1,6 @@
 export class NewHires {
 	constructor(
-		public id? : string,
+		public user_id? : string,
 		public collect_date?:string,
 		public return_date?:string,
 		public status?:string,
