@@ -1,0 +1,23 @@
+
+
+<div class="row" *ngFor="let hire of hires">
+<div *ngIf = "hire.group_id === authTokenService.currentUserData.group_id">
+  <div class="col s12 m6">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title">Group ID : {{hire.group_id}}</span>
+        <p> id : {{hire.id}}</p>
+        <p>collect_date : {{hire.collect_date}}</p>
+        <p>return_date : {{hire.return_date}}</p>
+        <p> band : {{hire.band}}</p>
+        <p> reference : {{hire.reference}}</p>
+        <p> invoice_number : {{hire.invoice_number}}</p>
+      </div>
+      <div class="card-action" >
+       <p>hello</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+

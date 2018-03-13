@@ -19,7 +19,12 @@ import { FormsModule } from '@angular/forms';
 import {AuthService} from "./services/auth.service";
 import { ProfileComponent } from './profile/profile.component';
 import {AuthGuard} from "./guards/auth.guard";
-import {GroupsService} from "./services/groups.service"
+import {GroupsService} from "./services/groups.service";
+import {HiresService} from "./services/hires.service";
+import { MyhiresComponent } from './myhires/myhires.component';
+import { CommonModule } from '@angular/common';
+import { NewhireComponent } from './newhire/newhire.component';  
+
 
 @NgModule({
   declarations: [
@@ -29,7 +34,9 @@ import {GroupsService} from "./services/groups.service"
     AuthDialogComponent,
     LoginFormComponent,
     RegisterFormComponent,
-    ProfileComponent
+    ProfileComponent,
+    MyhiresComponent,
+    NewhireComponent
 
   ],
   imports: [
@@ -38,9 +45,10 @@ import {GroupsService} from "./services/groups.service"
     HttpClientModule,
     HttpModule,
     MaterializeModule,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
-  providers: [ Angular2TokenService,AuthService,AuthGuard , GroupsService],
+  providers: [ Angular2TokenService,AuthService,AuthGuard ,GroupsService,HiresService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
