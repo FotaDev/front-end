@@ -16,14 +16,24 @@ import { MaterializeModule } from 'angular2-materialize';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { FormsModule } from '@angular/forms';
-import {AuthService} from "./services/auth.service";
+import { AuthService} from "./services/auth.service";
 import { ProfileComponent } from './profile/profile.component';
-import {AuthGuard} from "./guards/auth.guard";
+import { AuthGuard} from "./guards/auth.guard";
+
+
 import {GroupsService} from "./services/groups.service";
 import {HiresService} from "./services/hires.service";
+import {ItemsService} from "./services/items.service";
+import {SizesService} from "./services/sizes.service";
+import {OrdersService} from "./services/orders.service";
+
 import { MyhiresComponent } from './myhires/myhires.component';
 import { CommonModule } from '@angular/common';
-import { NewhireComponent } from './newhire/newhire.component';  
+import { NewhireComponent } from './newhire/newhire.component';
+import { ItemsComponent } from './items/items.component';
+import { ShowHireComponent } from './show-hire/show-hire.component';
+import { ShowItemComponent } from './show-item/show-item.component';
+
 
 
 @NgModule({
@@ -36,8 +46,11 @@ import { NewhireComponent } from './newhire/newhire.component';
     RegisterFormComponent,
     ProfileComponent,
     MyhiresComponent,
-    NewhireComponent
-
+    NewhireComponent,
+    ItemsComponent,
+    ShowHireComponent,
+    ShowItemComponent,
+ 
   ],
   imports: [
     BrowserModule,
@@ -48,7 +61,7 @@ import { NewhireComponent } from './newhire/newhire.component';
     FormsModule,
     CommonModule
   ],
-  providers: [ Angular2TokenService,AuthService,AuthGuard ,GroupsService,HiresService],
+  providers: [ Angular2TokenService,AuthService,AuthGuard,GroupsService,HiresService,ItemsService,SizesService,OrdersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

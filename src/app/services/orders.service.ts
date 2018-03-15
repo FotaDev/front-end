@@ -1,32 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions} from '@angular/http';
 import { Observable} from 'rxjs/Rx';
-import { Hires} from '../interface/hires';
+import { Orders} from '../interface/orders';
 
 @Injectable()
-export class HiresService {
+export class OrdersService {
 
- private hiresUrl = 'http://localhost:3000/hires';
- private json = '.json';
-
+  private ordersUrl = 'http://localhost:3000/orders.json'
   constructor(private http:Http) { }
 
+  getOrders() :Observable<Orders[]>{
 
-  getHires() :Observable<Hires[]>{
-
-    return this.http.get(this.hiresUrl+this.json).map((response:Response )=> <Hires[]>response.json()).catch(this.handleError);
-  
+    return this.http.get(this.ordersUrl).map((response:Response )=> <Orders[]>response.json()).catch(this.handleError);
   }
 
-  getHire(id:number){
-      return this.http.get(this.hiresUrl + "/" + id+this.json);
-  }
-
-  createHire(hire){
-    let headers  = new Headers({'Content-Type': 'application/json'});
-    let options = new RequestOptions({headers :headers});
-    return this.http.post(this.hiresUrl,JSON.stringify(hire),{headers: headers}).map((response :Response)=> response.json());
-   }
 
   private handleError (error: Response | any) {
     // In a real world app, we might use a remote logging infrastructure

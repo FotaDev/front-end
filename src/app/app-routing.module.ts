@@ -5,6 +5,8 @@ import {MyhiresComponent } from './myhires/myhires.component'
 import {ProfileComponent} from "./profile/profile.component";
 import {AuthGuard} from "./guards/auth.guard";
 import { NewhireComponent } from './newhire/newhire.component';  
+import { ItemsComponent } from './items/items.component'; 
+import { ShowHireComponent } from './show-hire/show-hire.component';
 
 const routes: Routes = [
   {
@@ -30,7 +32,18 @@ const routes: Routes = [
     path: 'newhire',
     component: NewhireComponent,
     canActivate: [AuthGuard]
-  }
+  },
+  {
+    path: 'items',
+    component: ItemsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'myhires/:id',
+    component: ShowHireComponent,
+    canActivate: [AuthGuard]
+  },
+  
 ];
 
 @NgModule({
@@ -38,5 +51,7 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: []
 })
+
+
 
 export class AppRoutingModule { }

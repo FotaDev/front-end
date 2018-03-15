@@ -5,6 +5,7 @@ import {HiresService} from "../services/hires.service";
 import {Observable} from 'rxjs/Rx';
 import {Angular2TokenService} from "angular2-token";
 import { CommonModule } from '@angular/common';  
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-myhires',
@@ -17,9 +18,10 @@ export class MyhiresComponent implements OnInit {
   mode = "Observable";
   errorMessage: string;
 
+
   
 
-  constructor(private hiresService: HiresService, public authTokenService:Angular2TokenService) { }
+  constructor(private hiresService: HiresService, public authTokenService:Angular2TokenService,private router:Router) { }
 
   ngOnInit() {
 
@@ -31,4 +33,9 @@ export class MyhiresComponent implements OnInit {
       this.hiresService.getHires().subscribe(hires => this.hires = hires, error => this.errorMessage = <any>error);
 
  }
+
+ goToShow(hire: Hires): void{
+  let link = ['/myhires',hire.id];
+  this.router.navigate(link);
+  }
 }
