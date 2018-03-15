@@ -1,3 +1,16 @@
-<p>
-  show-item works!
-</p>
+<div class="row">
+  <div>
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-1">
+        <div *ngIf="item" class="card-content white-text">
+          <span class="card-title">Clothing: {{item.description}}</span>
+          <p> created at : {{item.created_at}}</p>
+          <p> updated at: {{item.updated_at}}</p>
+        </div>
+        <div class="card-action" >
+         <p>hello</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>

@@ -3,6 +3,7 @@ import {Http} from '@angular/http';
 import {Items} from '../interface/items';
 import {ItemsService} from "../services/items.service";
 import {Observable} from 'rxjs/Rx';
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-items',
@@ -16,7 +17,7 @@ export class ItemsComponent implements OnInit {
   errorMessage: string;
 
 
-  constructor(private itemsService: ItemsService) { }
+  constructor(private itemsService: ItemsService,private router:Router) { }
 
   ngOnInit() {
 
@@ -28,4 +29,9 @@ export class ItemsComponent implements OnInit {
     this.itemsService.getItems().subscribe(items => this.items = items, error => this.errorMessage = <any>error);
 
 }
+
+goToShow(item: Items): void{
+  let link = ['/items',item.id];
+  this.router.navigate(link);
+  }
 }

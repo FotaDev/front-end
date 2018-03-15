@@ -6,13 +6,18 @@ import { Items} from '../interface/items';
 @Injectable()
 export class ItemsService {
 
-  private itemsUrl = 'http://localhost:3000/items.json';
+  private itemsUrl = 'http://localhost:3000/items';
+  private json = '.json';
   constructor(private http:Http) { }
 
   getItems() :Observable<Items[]>{
 
-    return this.http.get(this.itemsUrl).map((response:Response )=> <Items[]>response.json()).catch(this.handleError);
+    return this.http.get(this.itemsUrl+this.json).map((response:Response )=> <Items[]>response.json()).catch(this.handleError);
   }
+
+  getItem(id:number){
+    return this.http.get(this.itemsUrl + "/" + id+this.json);
+}
 
 
   private handleError (error: Response | any) {

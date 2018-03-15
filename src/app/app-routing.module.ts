@@ -7,6 +7,7 @@ import {AuthGuard} from "./guards/auth.guard";
 import { NewhireComponent } from './newhire/newhire.component';  
 import { ItemsComponent } from './items/items.component'; 
 import { ShowHireComponent } from './show-hire/show-hire.component';
+import { ShowItemComponent } from './show-item/show-item.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,11 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'myhires/:id',
+    component: ShowHireComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'newhire',
     component: NewhireComponent,
     canActivate: [AuthGuard]
@@ -39,8 +45,8 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'myhires/:id',
-    component: ShowHireComponent,
+    path: 'items/:id',
+    component: ShowItemComponent,
     canActivate: [AuthGuard]
   },
   
