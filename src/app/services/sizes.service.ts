@@ -9,7 +9,7 @@ export class SizesService {
   private sizesUrl = 'http://localhost:3000/sizes.json'
   constructor(private http:Http) { }
 
-  getItems() :Observable<Sizes[]>{
+  getSizes() :Observable<Sizes[]>{
 
     return this.http.get(this.sizesUrl).map((response:Response )=> <Sizes[]>response.json()).catch(this.handleError);
   }

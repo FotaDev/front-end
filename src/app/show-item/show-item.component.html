@@ -8,7 +8,11 @@
           <p> updated at: {{item.updated_at}}</p>
         </div>
         <div class="card-action" >
-         <p>hello</p>
+          <label>Size</label>
+          <select class="browser-default">
+            <option value="" disabled selected>Choose your option</option>
+            <option value="{{size.detail}}" *ngFor="let size of sizes">{{size.details}}</option>
+          </select>
         </div>
       </div>
     </div>
