@@ -1,20 +1,15 @@
-<div class="row">
-  <div>
-    <div class="col s12 m6">
+<div class="container">
+  <div class="row">
+    <div class="col-sm mt-5">
       <div class="card blue-grey darken-1">
         <div *ngIf="item" class="card-content white-text">
           <span class="card-title">Clothing: {{item.description}}</span>
-          <p> created at : {{item.created_at}}</p>
-          <p> updated at: {{item.updated_at}}</p>
+          <span class="card-title">Clothing: {{item.size.details}}</span>
+
         </div>
-        <div class="card-action" >
-          <label>Size</label>
-          <select class="browser-default">
-            <option value="" disabled selected>Choose your option</option>
-            <option value="{{size.detail}}" *ngFor="let size of sizes">{{size.details}}</option>
-          </select>
-        </div>
+       <button (click)= "addToBasket(item)">Add to Basket</button>
       </div>
     </div>
+    </div>
   </div>
-  </div>
+  

@@ -3,12 +3,18 @@ import { Http, Response, Headers, RequestOptions} from '@angular/http';
 import { Observable} from 'rxjs/Rx';
 import { Items} from '../interface/items';
 
+
 @Injectable()
 export class ItemsService {
 
   private itemsUrl = 'http://localhost:3000/items';
   private json = '.json';
-  constructor(private http:Http) { }
+  private items: Observable<Items[]>;
+
+  public constructor(private http:Http) { 
+
+    
+  }
 
   getItems() :Observable<Items[]>{
 
@@ -16,8 +22,9 @@ export class ItemsService {
   }
 
   getItem(id:number){
-    return this.http.get(this.itemsUrl + "/" + id+this.json);
+    return this.http.get(this.itemsUrl + "/" + id+ this.json);
 }
+
 
 
   private handleError (error: Response | any) {

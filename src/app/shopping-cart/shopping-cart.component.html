@@ -1,0 +1,9 @@
+
+<button (click) = "getBasket()">get basket</button>
+<div class = "container" *ngFor="let row of product">
+<p >{{row.description}}</p>
+
+<button (click) = "removeItem(row)">Remove</button>
+</div>
+
+<button (click) ="clearStorage()">clear</button>

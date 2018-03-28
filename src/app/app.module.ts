@@ -27,12 +27,24 @@ import {ItemsService} from "./services/items.service";
 import {SizesService} from "./services/sizes.service";
 import {OrdersService} from "./services/orders.service";
 
+
+
+
+
 import { MyhiresComponent } from './myhires/myhires.component';
 import { CommonModule } from '@angular/common';
 import { NewhireComponent } from './newhire/newhire.component';
 import { ItemsComponent } from './items/items.component';
 import { ShowHireComponent } from './show-hire/show-hire.component';
 import { ShowItemComponent } from './show-item/show-item.component';
+import { NewOrderComponent } from './new-order/new-order.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { AsyncLocalStorageModule } from 'angular-async-local-storage';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+
+
+
 
 
 
@@ -50,6 +62,8 @@ import { ShowItemComponent } from './show-item/show-item.component';
     ItemsComponent,
     ShowHireComponent,
     ShowItemComponent,
+    NewOrderComponent,
+    ShoppingCartComponent,
  
   ],
   imports: [
@@ -59,9 +73,14 @@ import { ShowItemComponent } from './show-item/show-item.component';
     HttpModule,
     MaterializeModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    Ng2SearchPipeModule,
+    AsyncLocalStorageModule,
+    OwlDateTimeModule, 
+    OwlNativeDateTimeModule,
   ],
-  providers: [ Angular2TokenService,AuthService,AuthGuard,GroupsService,HiresService,ItemsService,SizesService,OrdersService],
+  providers: [Angular2TokenService,AuthService,AuthGuard,GroupsService,HiresService,ItemsService,
+              SizesService,OrdersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

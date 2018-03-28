@@ -18,9 +18,6 @@ export class MyhiresComponent implements OnInit {
   mode = "Observable";
   errorMessage: string;
 
-
-  
-
   constructor(private hiresService: HiresService, public authTokenService:Angular2TokenService,private router:Router) { }
 
   ngOnInit() {
@@ -30,8 +27,9 @@ export class MyhiresComponent implements OnInit {
   }
 
   getHires(){
+    
       this.hiresService.getHires().subscribe(hires => this.hires = hires, error => this.errorMessage = <any>error);
-
+    
  }
 
  goToShow(hire: Hires): void{

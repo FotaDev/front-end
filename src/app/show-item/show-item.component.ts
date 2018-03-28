@@ -20,10 +20,18 @@ export class ShowItemComponent implements OnInit {
   errorMessage: string;
   @Input()
   item: Items;
+  basketHolder = [];
+  
   
   getSizes(){
     this.sizesService.getSizes().subscribe(sizes => this.sizes = sizes, error => this.errorMessage = <any>error);
 
+}
+
+addToBasket(item){
+
+    this.basketHolder.push(item);
+    console.log(this.basketHolder);
 }
 
   ngOnInit(): void {

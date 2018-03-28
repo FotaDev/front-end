@@ -1,0 +1,84 @@
+<div class="card container form-container">
+  <div class='row'>
+
+    <div class="col-md-6">
+      <h1>Create Hire</h1>
+
+      <div>
+        <form (ngSubmit)="createHire(hire)" #hireForm="ngForm">
+          <div class="form-group">
+            <label for="reference">Reference</label>
+            <input type="text"
+                    class="form-control"
+                    id="reference"
+                    placeholder="ID"
+                    required
+                    name="reference"
+                    #reference='ngModel'
+                    [(ngModel)]="hire.reference"
+            >
+            <div [hidden]="reference.valid || reference.pristine"
+                  class='alert alert-danger'
+            >
+              Customer name is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="invoice_number">Invoice Number</label>
+            <input type="text"
+                    class="form-control"
+                    id="invoice_number"
+                    required
+                    name="invoice_number"
+                    #invoice_number='ngModel'
+                    [(ngModel)]="hire.invoice_number"
+            >
+          </div>
+          <div class="form-group">
+              <label for="group_id">Group ID</label>
+              <input type="text"
+                      class="form-control"
+                      id="group_id"
+                      required
+                      name="group_id"
+                      #invoice_number='ngModel'
+                      [(ngModel)]="hire.group_id"
+              >
+            </div>
+
+            <div class="form-group">
+                <label for="user_id">User ID</label>
+                <input type="text"
+                        class="form-control"
+                        id="user_id"
+                        required
+                        name="user_id"
+                        #invoice_number='ngModel'
+                        [(ngModel)]="hire.user_id"
+                >
+              </div>
+
+
+          <button type="submit"
+            class='btn btn-outline-primary btn-lg'
+            [disabled]="!hireForm.form.valid"
+            [hidden]="submitted"
+          >
+            Generate Proposal
+          </button>
+          <!-- <div
+          [hidden]="!submitted"
+          class="alert alert-success"
+          role="alert"
+        >
+          Your hire has been created <a class="alert-link" routerLink="/myhires">View all hires</a>
+        </div>
+ -->
+
+        </form>
+      </div>
+    </div>
+    
+  </div>
+</div>

@@ -25,7 +25,7 @@ export class HiresService {
   createHire(hire){
     let headers  = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({headers :headers});
-    return this.http.post(this.hiresUrl,JSON.stringify(hire),{headers: headers}).map((response :Response)=> response.json());
+    return this.http.post(this.hiresUrl+this.json,JSON.stringify(hire),{headers: headers}).map((response :Response)=> response.json());
    }
 
   private handleError (error: Response | any) {

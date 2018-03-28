@@ -8,6 +8,7 @@ import { NewhireComponent } from './newhire/newhire.component';
 import { ItemsComponent } from './items/items.component'; 
 import { ShowHireComponent } from './show-hire/show-hire.component';
 import { ShowItemComponent } from './show-item/show-item.component';
+import {ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 
 const routes: Routes = [
   {
@@ -49,6 +50,12 @@ const routes: Routes = [
     component: ShowItemComponent,
     canActivate: [AuthGuard]
   },
+  {
+    path: 'shopping',
+    component: ShoppingCartComponent,
+    canActivate: [AuthGuard]
+  },
+  
   
 ];
 
