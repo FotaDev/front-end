@@ -45,7 +45,7 @@ export class NewhireComponent implements OnInit {
     this.submitted = true;
     this.setSomeHireProperties();
     console.log(this.hire)
-    // this.hireservice.createHire(this.hire).subscribe( data => {return true},suc => {this.router.navigate(['/myhires']) }); error => {console.log("Error saving hire"); return Observable.throw(error)};
+    this.hireservice.createHire(this.hire).subscribe( data => {return true},suc => {this.router.navigate(['/myhires']) }); error => {console.log("Error saving hire"); return Observable.throw(error)};
   }
 
   onSignInSubmit(){
