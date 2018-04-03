@@ -1,0 +1,35 @@
+<div class="container bg">
+  <form class="form-signin text-center" (ngSubmit)="onSignUpSubmit()" #f="ngForm">
+      <img class="mb-4" src="assets/img/logobig.png" alt="" width="100" height="100">
+      <h1 class="h3 mb-3 font-weight-normal">Please register</h1>
+     
+      <label for="email" class="sr-only" >Email address</label>
+      <input type="email" id="email" class="form-control" placeholder="Email address" required autofocus
+      [(ngModel)]="signUpUser.email"  name='email'  >
+      
+      <label for="password" class="sr-only">Password</label>
+      <input type="password" id="password" class="form-control" placeholder="Password" required
+      name='password'[(ngModel)]="signUpUser.password" >
+
+      <label for="password_confirmation" class="sr-only">Confirm Password</label>
+      <input type="password" id="password_confirmation" class="form-control" placeholder="Password"
+      [(ngModel)]="signUpUser.passwordConfirmation"  name='password_confirmation'>
+       
+      <div class="col-auto my-1">
+          <label class="mr-sm-2" for="inlineFormCustomSelect">School</label>
+          <select class="custom-select mr-sm-2" id="group_id"
+          name='group_id'
+          [(ngModel)]="signUpUser.group_id">
+            <option value="" disabled selected>Choose your option</option>
+            <option value="{{group.id}}" *ngFor="let group of groups">{{ group.name}}</option>
+          </select>
+        </div>
+       
+        <button 
+        type="submit"
+        [disabled]="!(f.valid) || !(signUpUser.password == signUpUser.passwordConfirmation)">Sign up</button>
+    </form>
+
+    <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+   
+  </div>

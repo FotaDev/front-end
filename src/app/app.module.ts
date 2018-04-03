@@ -3,43 +3,52 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 
+
 import { AppComponent } from './app.component';
+import { Angular2TokenService } from 'angular2-token';
+import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './components/home/home.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
-
-import { Angular2TokenService } from 'angular2-token';
-import { HomeComponent } from './home/home.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
-import { AuthDialogComponent } from './auth-dialog/auth-dialog.component';
-import { MaterializeModule } from 'angular2-materialize';
-import { LoginFormComponent } from './login-form/login-form.component';
-import { RegisterFormComponent } from './register-form/register-form.component';
-import { FormsModule } from '@angular/forms';
+import {GroupsService} from "./services/groups.service";
+import { ProfileComponent } from './components/profile/profile.component';
 import {AuthService} from "./services/auth.service";
-import { ProfileComponent } from './profile/profile.component';
 import {AuthGuard} from "./guards/auth.guard";
+import { MyhiresComponent } from './components/myhires/myhires.component';
+import { NewhireComponent } from './components/newhire/newhire.component';
+import {HiresService} from "./services/hires.service";
+
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ToolbarComponent,
-    AuthDialogComponent,
-    LoginFormComponent,
-    RegisterFormComponent,
-    ProfileComponent
-
+    LoginComponent,
+    RegisterComponent,
+    ProfileComponent,
+    MyhiresComponent,
+    NewhireComponent,
+   
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     HttpModule,
-    MaterializeModule,
-    FormsModule
+    FormsModule,
+   
+    
   ],
-  providers: [ Angular2TokenService,AuthService,AuthGuard ],
+  providers: [Angular2TokenService, AuthService,GroupsService,AuthGuard,HiresService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

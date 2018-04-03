@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('angular-token-auth App', () => {
+describe('joe-front App', () => {
   let page: AppPage;
 
   beforeEach(() => {

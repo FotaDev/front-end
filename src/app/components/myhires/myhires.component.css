@@ -1,0 +1,13 @@
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+.list-items {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    align-content: flex-end;
+  }
+  
+  .list-item {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
