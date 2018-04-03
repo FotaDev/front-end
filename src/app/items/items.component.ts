@@ -36,23 +36,35 @@ export class ItemsComponent implements OnInit {
 
     let timer =Observable.timer(0,5000);
     timer.subscribe(() => this.getItems());
+
+    this.getBasket();
   
   }
 
 
-  itemSave(array){
+  itemSave(item){
 
-    this.addToArray(array);
+    this.addToArray(item);
     this.getBasketlength();
   }
 
+  getBasket(){ 
+    var retrievedObject = localStorage.getItem('joe');
+    // CONVERT STRING TO REGULAR JS OBJECT
+    var parsedObject = JSON.parse(retrievedObject);
+    // ACCESS DATA
+    console.log(parsedObject+"joe");
+    for (let entry of parsedObject) {
+          this.pickedItem.push(entry);
+      }
+  }
 
   getBasketlength(){
   var retrievedObject = localStorage.getItem('joe');
   var parsedTotal = JSON.parse(retrievedObject);
   this.basketTotal = parsedTotal.length;
   }
-
+ 
 
   getItems(){
     this.itemsService.getItems().subscribe(items => this.items = items, error => this.errorMessage = <any>error);
@@ -71,6 +83,20 @@ export class ItemsComponent implements OnInit {
         if (isPlatformBrowser(this.platformId)) {
             localStorage.setItem( 'joe', JSON.stringify(array));
        }
+
+       if (isPlatformBrowser(this.platformId)) {
+        for (var i = 0; i < localStorage.length; i++) {
+            var key = localStorage.key(i);
+            if (key == "joe") {
+              localStorage.setItem( 'joe', JSON.stringify(array));
+               
+            }
+        }
+       
+    }
+    else {
+        console.log("Error: you don't have localStorage!");
+    }
 }
 
 
