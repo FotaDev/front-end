@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HiresService} from '../../services/hires.service';
 import {NewHires} from './newhire';
-import {Observable} from 'rxjs/RX';
+import {Observable} from 'rxjs/Rx';
 import {Router} from '@angular/router';
 import {Angular2TokenService} from "angular2-token";
 
@@ -26,7 +26,7 @@ export class NewhireComponent implements OnInit {
   hire = new NewHires;
   submitted: boolean = false;
   reference = Math.floor(Math.random()*90000) + 10000;
-  status = "not collected yet";
+  status = 0;
   band = 2;
 
 

@@ -3,7 +3,7 @@ export class NewHires {
 		public user_id? : number,
 		public collect_date?:string,
 		public return_date?:string,
-		public status?:string,
+		public status?:number,
 		public band?:number,
 		public reference?:number,
 		public invoice_number?:string,
